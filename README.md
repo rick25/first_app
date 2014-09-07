@@ -43,6 +43,49 @@ by [Ricardo Chinchay].
 -Elimino la rama que acabo de unir y que ya no voy a usar :
 		git branch -d nombre_rama
 
+-Modificamos el Gemfile para poder usar Heroku :
+		source 'https://rubygems.org'
+		ruby '2.1.2'	#agregado
+
+		gem 'rails', '4.1.5'	#4.0.8
+		group :development do
+			gem 'sqlite3'			#1.3.8
+		end
+		gem 'sass-rails', '4.0.3'	#ok
+		gem 'uglifier', '2.1.1'		#2.1.1
+		gem 'coffee-rails', '4.0.0'	#4.0.1
+		# gem 'therubyracer',  platforms: :ruby
+
+		gem 'jquery-rails', '3.0.4'		#3.0.4
+		gem 'turbolinks', '1.1.1'		#1.1.1
+		gem 'jbuilder', '2.0'	#1.0.2
+
+		group :doc do
+			gem 'sdoc', '0.3.20', require: false	#0.3.20
+		end
+		group :production do
+			gem 'pg', '0.15.1'
+			gem 'rails_12factor', '0.0.2'
+		end
+		#gem 'spring',        group: :development
+
+-Hago :
+		bundle install --without production
+
+-Hago otra confirmacion :
+		git commit -a -m "Actualizado gemfile.lock para Heroku" 
+
+-Me logueo en Heroku :
+		heroku login
+
+-Dentro de la carpeta del proyecto hacemos :
+		heroku create
+
+-Mando el repositorio a heroku :
+		git push heroku master
+
+-Para poder ver la aplicacion en heroku :
+		heroku open
+
 -Ahora mando los datos que tengo en el repositorio local al remoto
 		git push
-
